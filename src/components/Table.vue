@@ -3,30 +3,39 @@
 </template>
 
 <script>
-/*
+import axios from 'axios';
+
 export default ({
   data() {
     return {
       data: [],
-      columns: [ ]
+      columns: []
     }
-  }
-});
-*/
-
-import { mapState, mapActions } from 'vuex';
-
-export default {
-  name: 'data',
-  computed: {
-    //return this.$store.state.posts
-    ...mapState(['data', 'columns'])
   },
-  mounted () {
-    this.$store.dispatch('getData')
+  mounted: function() {
+    this.getData();
   },
   methods: {
-    ...mapActions(['getData'])
+    getData: function(){
+      const axiosRequest = axios.create({
+        baseURL: 'http://localhost:3000/',
+        responseType: 'application/json'  
+      });
+      axiosRequest.get('/data', {})
+        .then(response => {
+          this.data = response.data
+        })
+        .catch(err => {
+          console.log('err:', err)
+        });
+      axiosRequest.get('/columns', {})
+        .then(response => {
+          this.columns = response.data
+        })
+        .catch(err => {
+          console.log('err:', err)
+        });
+    },
   }
-}
+});
 </script>
