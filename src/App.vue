@@ -10,7 +10,7 @@
         </div>
         <div class="tile is-child box">
           <p class="title">Two</p>
-          ここにTwoの何かを出す
+          <Post />
         </div>
       </div>
       <div class="tile is-parent">
@@ -27,11 +27,13 @@
 <script>
 import Header from './components/Header.vue';
 import Table from './components/Table.vue';
+import Post from './components/Post.vue';
 
 export default{
   name: "App",
   components: {
     Header,
+    Post,
     Table
   }
 }

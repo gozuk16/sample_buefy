@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import axios from 'axios';
-
 export default ({
   data() {
     return {
@@ -17,24 +15,8 @@ export default ({
   },
   methods: {
     getData: function(){
-      const axiosRequest = axios.create({
-        baseURL: 'http://localhost:3000/',
-        responseType: 'application/json'  
-      });
-      axiosRequest.get('/data', {})
-        .then(response => {
-          this.data = response.data
-        })
-        .catch(err => {
-          console.log('err:', err)
-        });
-      axiosRequest.get('/columns', {})
-        .then(response => {
-          this.columns = response.data
-        })
-        .catch(err => {
-          console.log('err:', err)
-        });
+      this.$api.get('/data', {}) .then(response => { this.data = response.data })
+      this.$api.get('/columns', {}) .then(response => { this.columns = response.data })
     },
   }
 });
