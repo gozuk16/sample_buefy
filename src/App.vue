@@ -9,8 +9,8 @@
           ここにOneの何かを出す
         </div>
         <div class="tile is-child box">
-          <p class="title">Two</p>
-          ここにTwoの何かを出す
+          <p class="title">Vuexサンプル</p>
+          <Post />
         </div>
       </div>
       <div class="tile is-parent">
@@ -27,12 +27,14 @@
 <script>
 import Header from './components/Header.vue';
 import Table from './components/Table.vue';
+import Post from './components/Post.vue';
 
 export default{
   name: "App",
   components: {
     Header,
-    Table
+    Table,
+    Post
   }
 }
 </script>
