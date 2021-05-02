@@ -1,5 +1,5 @@
 <template>
-    <b-navbar>
+    <b-navbar class="is-light">
         <template #brand>
             <b-navbar-item tag="router-link" :to="{ path: '/' }">
                 <img
@@ -9,15 +9,15 @@
             </b-navbar-item>
         </template>
         <template #start>
-            <b-navbar-item href="#">
+            <b-navbar-item tag="router-link" :to="{ path: '/' }">
                 Dashboard
             </b-navbar-item>
             <b-navbar-item href="#">
                 Documentation
             </b-navbar-item>
             <b-navbar-dropdown label="Info">
-                <b-navbar-item href="#">
-                    About
+                <b-navbar-item tag="router-link" :to="{ name: 'about' }">
+                   About
                 </b-navbar-item>
                 <b-navbar-item href="#">
                     Contact

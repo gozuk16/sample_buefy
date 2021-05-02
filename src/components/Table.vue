@@ -14,7 +14,7 @@ export default ({
     this.getData();
   },
   methods: {
-    getData: function(){
+    getData() {
       this.$api.get('/data', {}) .then(response => { this.data = response.data })
       this.$api.get('/columns', {}) .then(response => { this.columns = response.data })
     },

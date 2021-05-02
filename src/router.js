@@ -1,0 +1,24 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import Top from '@/components/Top'
+import About from '@/components/About'
+
+
+Vue.use(Router)
+
+export default new Router({
+  mode: "history",
+  routes: [
+    {
+      path: '/',
+      name: 'top',
+      component: Top
+    },
+
+   {
+      path: '/about',
+      name: 'about',
+      component: About
+    }
+  ]
+})
