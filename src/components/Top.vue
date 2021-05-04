@@ -1,10 +1,9 @@
 <template>
     <div class="container">
-      <div class="tile is-ancestor">
+      <div class="tile is-ancestor mt-5">
         <div class="tile is-4 is-vertical is-parent">
           <div class="tile is-child box">
-            <p class="title">One</p>
-            ここにOneの何かを出す
+            <Button />
           </div>
           <div class="tile is-child box">
             <p class="title">Two</p>
@@ -24,10 +23,12 @@
 <script>
 import Table from '@/components/Table.vue';
 import Post from '@/components/Post.vue';
+import Button from '@/components/Button.vue';
 
 export default{
   name: "Top",
   components: {
+    Button,
     Post,
     Table
   }

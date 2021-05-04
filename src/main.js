@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import App from './App.vue';
 import Buefy from 'buefy';
-import 'buefy/dist/buefy.css';
+//import 'buefy/dist/buefy.css';
+import './assets/style.scss';
 import Api from './api';
 import router from './router';
 
