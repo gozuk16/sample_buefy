@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Top from '@/components/Top'
+import PostTable from '@/components/PostTable'
 import About from '@/components/About'
 
 
@@ -14,8 +15,12 @@ export default new Router({
       name: 'top',
       component: Top
     },
-
    {
+      path: '/post_table',
+      name: 'PostTable',
+      component: PostTable
+    },
+    {
       path: '/about',
       name: 'about',
       component: About
