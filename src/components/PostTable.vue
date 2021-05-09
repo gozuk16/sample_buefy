@@ -22,7 +22,7 @@
             </b-table-column>
             <b-table-column centered field="flag" label="Flag" v-slot="props">
               <b-feild>
-              <b-switch true-value="True" false-value="False" :value="props.row.flag" :rounded="false" type="is-success" passive-type="is-danger">
+              <b-switch v-model="props.row.flag" true-value="True" false-value="False" :rounded="false" type="is-success" passive-type="is-danger">
                 {{ props.row.flag }}
               </b-switch>
               </b-feild>
@@ -50,14 +50,6 @@ export default ({
       this.$api.get('/data', {}) .then(response => { this.data = response.data })
       this.$api.get('/columns', {}) .then(response => { this.columns = response.data })
     },
-    isSwitch(value) {
-      if (value == "True") {
-        return 'true'
-      } else {
-        return 'false'
-      }
-
-    }
   }
 });
 </script>
