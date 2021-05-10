@@ -21,11 +21,9 @@
               <span>{{ props.row.gender }}</span>
             </b-table-column>
             <b-table-column centered field="flag" label="Flag" v-slot="props">
-              <b-feild>
-              <b-switch v-model="props.row.flag" true-value="True" false-value="False" :rounded="false" type="is-success" passive-type="is-danger">
+              <b-switch v-model="props.row.flag" @input="onFlag($event, props.row.first_name)" true-value="True" false-value="False" :rounded="false" type="is-success" passive-type="is-danger">
                 {{ props.row.flag }}
               </b-switch>
-              </b-feild>
             </b-table-column>
           </b-table>
         </div>
@@ -49,6 +47,17 @@ export default ({
     getData() {
       this.$api.get('/data', {}) .then(response => { this.data = response.data })
       this.$api.get('/columns', {}) .then(response => { this.columns = response.data })
+    },
+    onFlag: function(event, serviceName) {
+      console.log('onFlag');
+      console.log(event);
+      console.log(serviceName);
+/*
+      console.log(event.target);
+      console.log(event.target.tagName);
+      console.log(event.target.innerHTML);
+      console.log(event.target.type);
+*/
     },
   }
 });
