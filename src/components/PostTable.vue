@@ -23,6 +23,7 @@
             <b-table-column centered field="flag" label="Flag" v-slot="props">
               <b-switch v-model="props.row.flag" @input="onFlag($event, props.row.first_name)" true-value="True" false-value="False" :rounded="false" type="is-success" passive-type="is-danger">
                 {{ props.row.flag }}
+                <b-loading :is-full-page="false" v-model="isLoading" :can-cancel="false" />
               </b-switch>
             </b-table-column>
           </b-table>
@@ -37,7 +38,8 @@ export default ({
   data() {
     return {
       data: [],
-      columns: []
+      columns: [],
+      isLoading: false,
     }
   },
   mounted: function() {
@@ -49,6 +51,7 @@ export default ({
       this.$api.get('/columns', {}) .then(response => { this.columns = response.data })
     },
     onFlag: function(event, serviceName) {
+      this.isLoading = true;
       console.log('onFlag');
       console.log(event);
       console.log(serviceName);
@@ -58,6 +61,9 @@ export default ({
       console.log(event.target.innerHTML);
       console.log(event.target.type);
 */
+      setTimeout(() => {
+        this.isLoading = false
+      }, 10 * 100)
     },
   }
 });
